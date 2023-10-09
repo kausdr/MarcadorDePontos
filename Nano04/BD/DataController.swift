@@ -34,12 +34,13 @@ class DataController: ObservableObject {
     
     
     
-    func addJogador(nome: String, ponto: String, context: NSManagedObjectContext) {
+    func addJogador(nome: String, ponto: String, cor: String, context: NSManagedObjectContext) {
         let jogador = Jogador(context: context)
         let intPonto = Int64(ponto)
         jogador.id = UUID()
         jogador.nome = nome
         jogador.ponto = intPonto ?? 0
+        jogador.cor = cor
         
         save(context: context)
     }

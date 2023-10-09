@@ -54,14 +54,19 @@ struct RemoveAllJogadores: View {
                         } label: {
                             VStack {
                                 Text("NÃO")
-                                    .foregroundColor(Color(uiColor: .systemBlue))
+                                    .foregroundColor(Color("FontUniversal"))
                                     .font(.title)
                                     .fontWeight(.bold)
                             }
                             .frame(maxWidth: .infinity)
                             .padding(10)
-                            .background(Color(uiColor: .white))
-                            .cornerRadius(10)
+                            .background(Color("Azul"))
+                            .overlay(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(Color.black, lineWidth: 3)
+                                )
+                                .cornerRadius(10)
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
                             
                         }
                         
@@ -84,7 +89,13 @@ struct RemoveAllJogadores: View {
                             .frame(maxWidth: .infinity)
                             .padding(10)
                             .background(Color(uiColor: .white))
-                            .cornerRadius(10)
+                            .background(Color("Vermelho"))
+                            .overlay(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(Color.black, lineWidth: 3)
+                                )
+                                .cornerRadius(10)
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
                             
                         }
                         .sensoryFeedback(.success, trigger: doDelete)
