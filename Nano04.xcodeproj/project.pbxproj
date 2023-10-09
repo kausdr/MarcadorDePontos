@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A70B7522AD488230018301B /* DelaGothicOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5A70B7502AD488230018301B /* DelaGothicOne-Regular.ttf */; };
+		5A70B7532AD488230018301B /* YoungSerif-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5A70B7512AD488230018301B /* YoungSerif-Regular.ttf */; };
 		5A7F31D92ACC2FB80089D178 /* Nano04App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7F31D82ACC2FB80089D178 /* Nano04App.swift */; };
 		5A7F31DB2ACC2FB80089D178 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7F31DA2ACC2FB80089D178 /* ContentView.swift */; };
 		5A7F31DD2ACC2FB90089D178 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A7F31DC2ACC2FB90089D178 /* Assets.xcassets */; };
@@ -19,6 +21,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5A70B7502AD488230018301B /* DelaGothicOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "DelaGothicOne-Regular.ttf"; path = "../Fontezinhas/DelaGothicOne-Regular.ttf"; sourceTree = "<group>"; };
+		5A70B7512AD488230018301B /* YoungSerif-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "YoungSerif-Regular.ttf"; path = "../Fontezinhas/YoungSerif-Regular.ttf"; sourceTree = "<group>"; };
+		5A70B7542AD4885B0018301B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		5A7F31D52ACC2FB80089D178 /* Nano04.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nano04.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A7F31D82ACC2FB80089D178 /* Nano04App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nano04App.swift; sourceTree = "<group>"; };
 		5A7F31DA2ACC2FB80089D178 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -45,6 +50,8 @@
 		5A7F31CC2ACC2FB80089D178 = {
 			isa = PBXGroup;
 			children = (
+				5A70B7502AD488230018301B /* DelaGothicOne-Regular.ttf */,
+				5A70B7512AD488230018301B /* YoungSerif-Regular.ttf */,
 				5A7F31D72ACC2FB80089D178 /* Nano04 */,
 				5A7F31D62ACC2FB80089D178 /* Products */,
 			);
@@ -61,6 +68,7 @@
 		5A7F31D72ACC2FB80089D178 /* Nano04 */ = {
 			isa = PBXGroup;
 			children = (
+				5A70B7542AD4885B0018301B /* Info.plist */,
 				5A7F31D82ACC2FB80089D178 /* Nano04App.swift */,
 				5A7F31EF2ACDF2110089D178 /* Views */,
 				5A7F31E62ACDDC690089D178 /* BD */,
@@ -156,8 +164,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A70B7532AD488230018301B /* YoungSerif-Regular.ttf in Resources */,
 				5A7F31E02ACC2FB90089D178 /* Preview Assets.xcassets in Resources */,
 				5A7F31DD2ACC2FB90089D178 /* Assets.xcassets in Resources */,
+				5A70B7522AD488230018301B /* DelaGothicOne-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +321,7 @@
 				DEVELOPMENT_TEAM = N5DJJCAK38;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Nano04/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -340,6 +351,7 @@
 				DEVELOPMENT_TEAM = N5DJJCAK38;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Nano04/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

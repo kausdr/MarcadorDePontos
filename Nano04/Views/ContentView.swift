@@ -28,7 +28,9 @@ struct ContentView: View {
     
     @State private var fontSize: CGFloat = 20.0
     
-    var myColors: [String] = ["Amarelo", "Azul", "Laranja", "Rosa", "Roxo", "Vermelho"]
+    @State var cor: String = "Amarelo"
+    @State var previousColor = ""
+    @State var currentColor = ""
     
     let columns = [
         GridItem(.adaptive(minimum: 100))
@@ -40,7 +42,9 @@ struct ContentView: View {
             ZStack {
                 VStack {
                     if jogador.isEmpty {
-                        Text("Crie um placar :)")
+                        Text("Crie um Placar\n:)")
+                            .multilineTextAlignment(.center)
+                            .font(.custom("YoungSerif-Regular", size: 20))
                             .foregroundStyle(Color(uiColor: .systemGray2))
                         
                     }
@@ -71,9 +75,7 @@ struct ContentView: View {
                                                 .cornerRadius(10)
                                                 
                                         }
-                                        .background(Color(generateRandomColorFromSet()))
                                     }
-                                    
                                     .onAppear {
                                         fontSize = calculateDynamicFontSize(for: jogador.nome ?? "")
                                     }
@@ -88,14 +90,13 @@ struct ContentView: View {
                                     }
                                     .sensoryFeedback(.success, trigger: openEditView)
                                     .sensoryFeedback(.success, trigger: pontoAdded)
-                                    .foregroundColor(Color(uiColor: .white))
+                                    .foregroundColor(Color(uiColor: .black))
                                     .frame(width: 90, height: 90)
                                     .padding(10)
-                                    .background(Color(generateRandomColorFromSet()))
-//                                    .background(Color(jogador.cor))
+                                    .background(Color("\(jogador.cor ?? "")"))
                                     .overlay(
                                             RoundedRectangle(cornerRadius: 10)
-                                                .stroke(Color.black, lineWidth: 2)
+                                                .stroke(Color.black, lineWidth: 3)
                                         )
                                         .cornerRadius(10)
                                         .clipShape(RoundedRectangle(cornerRadius: 10))
@@ -111,11 +112,12 @@ struct ContentView: View {
                 }
                 .frame(maxWidth: .infinity)
             }
+            .background(Color("AmareloClaro"))
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading){
                     HStack {
                         Text("Placar")
-                            .font(.title)
+                            .font(.custom("YoungSerif-Regular", size: 30))
                             .fontWeight(.bold)
                     }
                 }
@@ -140,6 +142,7 @@ struct ContentView: View {
                         }
                     label: {
                         Image(systemName: "plus.circle")
+                            .foregroundColor(Color("Icon"))
                     }
                         
                         
@@ -158,7 +161,7 @@ struct ContentView: View {
         }
         .overlay {
             if showSheet {
-                AddJogadorView(showSheet: $showSheet, deleteAllButton: $deleteAllButton)
+                AddJogadorView(showSheet: $showSheet, deleteAllButton: $deleteAllButton, cor: $cor, previousColor: $previousColor, currentColor: $currentColor)
             }
             
             if editView {
@@ -171,11 +174,6 @@ struct ContentView: View {
             
             
         }
-    }
-    
-    func generateRandomColorFromSet() -> String {
-        let randomIndex = Int.random(in: 0..<myColors.count)
-        return myColors[randomIndex]
     }
 }
 

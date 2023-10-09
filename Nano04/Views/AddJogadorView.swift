@@ -17,6 +17,9 @@ struct AddJogadorView: View {
     @State var ponto: String = "0"
     @Binding var showSheet: Bool
     @Binding var deleteAllButton: Bool
+    @Binding var cor: String
+    @Binding var previousColor: String
+    @Binding var currentColor: String
     
     
     var body: some View {
@@ -36,14 +39,21 @@ struct AddJogadorView: View {
                         Image(systemName: "xmark")
                             .frame(width: 50, height: 50)
                             .font(.system(size: 30))
-                            .foregroundColor(Color(uiColor: .systemRed))
-                            .background(Color(uiColor: .white))
+                            .foregroundColor(Color("FontUniversal"))
+                            .background(Color("Bg"))
                             .cornerRadius(10)
                     }
+                    .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color.black, lineWidth: 3)
+                        )
+                        .cornerRadius(10)
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
                     
                 }
                 .frame(maxWidth: 280, alignment: .trailing)
                 .padding(.horizontal, 10)
+                
                 
                 VStack{
                     Text("Jogador")
@@ -59,6 +69,7 @@ struct AddJogadorView: View {
                             .fontWeight(.bold)
                             .multilineTextAlignment(.center)
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
+                            .foregroundColor(Color("FontCard"))
                             .background(Color(uiColor: .systemGray2))
                             .cornerRadius(10)
                             .onTapGesture {
@@ -73,6 +84,7 @@ struct AddJogadorView: View {
                             .fontWeight(.bold)
                             .multilineTextAlignment(.center)
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
+                            .foregroundColor(Color("FontCard"))
                             .background(Color(uiColor: .systemGray2))
                             .cornerRadius(10)
                             .onTapGesture {
@@ -82,7 +94,8 @@ struct AddJogadorView: View {
                             }
                     }
                     Button {
-                        DataController().addJogador(nome: nome, ponto: ponto, context: managedObjContext)
+                        cor = generateRandomColorFromSet()
+                        DataController().addJogador(nome: nome, ponto: ponto, cor: cor, context: managedObjContext)
                         
                         if DataController().countJogadores(context: managedObjContext) != 0 {
                             deleteAllButton = true
@@ -92,24 +105,54 @@ struct AddJogadorView: View {
                     } label: {
                         VStack {
                             Text("OK")
-                                .foregroundColor(Color(uiColor: .systemBlue))
+                                .foregroundColor(Color("FontUniversal"))
                                 .font(.title)
                                 .fontWeight(.bold)
                         }
                         .padding(10)
-                        .background(Color(uiColor: .white))
-                        .cornerRadius(10)
+                        .background(Color("Azul"))
+                        .overlay(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(Color.black, lineWidth: 3)
+                            )
+                            .cornerRadius(10)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
                         
                     }
                 }
                 .frame(width: 280, height: 280)
                 .padding(10)
                 .background(Color(uiColor: .systemGray4))
-                .cornerRadius(10)
+                .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.black, lineWidth: 3)
+                    )
+                    .cornerRadius(10)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
             }
             
         }
         
+    }
+    
+    func generateRandomColorFromSet() -> String {
+        //        let myColors: [String] = ["Amarelo", "Azul", "Laranja", "Rosa", "Roxo", "Vermelho"]
+        //
+        //        let randomIndex = Int.random(in: 0..<myColors.count)
+        //        return myColors[randomIndex]
+        
+        let myColors: [String] = ["Amarelo", "Azul", "Laranja", "Rosa", "Roxo", "Vermelho"]
+        
+        var randomIndex = Int.random(in: 0..<myColors.count)
+        
+        // Ensure the next color is different from the previous one
+        while myColors[randomIndex] == previousColor {
+            randomIndex = Int.random(in: 0..<myColors.count)
+        }
+        
+        previousColor = currentColor
+        currentColor = myColors[randomIndex]
+        return currentColor
     }
 }
 

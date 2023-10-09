@@ -41,11 +41,17 @@ struct RemoveJogadorView: View {
                         } label: {
                             Image(systemName: "trash")
                                 .frame(width: 50, height: 50)
-                                .font(.system(size: 30))
-                                .foregroundColor(Color(uiColor: .systemRed))
-                                .background(Color(uiColor: .white))
+                                .font(.system(size: 25))
+                                .foregroundColor(Color("FontUniversal"))
+                                .background(Color("Vermelho"))
                                 .cornerRadius(10)
                         }
+                        .overlay(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(Color.black, lineWidth: 3)
+                            )
+                            .cornerRadius(10)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
                         
                     }
                     .sensoryFeedback(.success, trigger: exitEdit)
@@ -95,21 +101,31 @@ struct RemoveJogadorView: View {
                     } label: {
                         VStack {
                             Text("OK")
-                                .foregroundColor(Color(uiColor: .systemBlue))
+                                .foregroundColor(Color("FontUniversal"))
                                 .font(.title)
                                 .fontWeight(.bold)
                         }
                         
                         .padding(10)
-                        .background(Color(uiColor: .white))
-                        .cornerRadius(10)
+                        .background(Color("Azul"))
+                        .overlay(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(Color.black, lineWidth: 3)
+                            )
+                            .cornerRadius(10)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
                         
                     }
                 }
                 .frame(width: 280, height: 280)
                 .padding(10)
                 .background(Color(uiColor: .systemGray4))
-                .cornerRadius(10)
+                .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.black, lineWidth: 3)
+                    )
+                    .cornerRadius(10)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
                 .onAppear{
                     nome = jogador.nome ?? "JANEIRO"
                     ponto = String(jogador.ponto)
