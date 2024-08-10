@@ -3,7 +3,7 @@
 
 <h1>Welcome To Placar</h1>
 <p>An application to keep score.</p>
-<p style="color:pink;">Placar is now on <a href="https://apps.apple.com/br/app/placar-marcador-de-pontos/id6473264774" target="blank">App Store</a></p>
+<p style="color:pink;">Placar is now on <a href="https://apps.apple.com/br/app/placar-marcador-de-pontos/id6473264774" target="blank" style="color:pink;">App Store</a></p>
 
 <div align="center">
   <img src="https://github.com/user-attachments/assets/485fd78b-d5b9-4ecb-997a-49e8cce208bd" width="30%" alt="logo">
