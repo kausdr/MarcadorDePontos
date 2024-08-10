@@ -21,7 +21,7 @@
 </ul>
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/d7eef817-3251-429b-8f9e-bab7724971db" width="20%" alt="logo">
+  <img src="https://github.com/user-attachments/assets/d7eef817-3251-429b-8f9e-bab7724971db" width="5%" alt="logo">
 
 </div>
 
